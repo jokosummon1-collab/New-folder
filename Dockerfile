@@ -1,5 +1,5 @@
 # Stage 1: Build the React frontend
-FROM node:18 AS client-builder
+FROM node:20 AS client-builder
 ENV NODE_ENV=development
 WORKDIR /app/client
 # Copy only package.json to ignore Windows-specific package-lock.json
@@ -9,7 +9,7 @@ COPY client/ ./
 RUN npm run build
 
 # Stage 2: Serve the application
-FROM node:18-bullseye-slim
+FROM node:20-slim
 WORKDIR /app
 
 # Install system dependencies (Python 3, pip, ffmpeg)
