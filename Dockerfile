@@ -1,5 +1,5 @@
 # Stage 1: Build the React frontend
-FROM node:18-alpine AS client-builder
+FROM node:18 AS client-builder
 # Force development environment for npm install to ensure build tools (Vite) are installed
 ENV NODE_ENV=development
 WORKDIR /app/client
