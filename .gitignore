@@ -1,0 +1,10 @@
+node_modules/
+**/node_modules/
+downloads/
+history.json
+*.log
+.gemini/
+.DS_Store
+dist/
+client/dist/
+.env

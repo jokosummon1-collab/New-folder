@@ -1,0 +1,15 @@
+{
+  "name": "universal-video-downloader",
+  "version": "1.0.0",
+  "description": "Premium Video Downloader Web Application",
+  "main": "server/index.js",
+  "scripts": {
+    "server": "node server/index.js",
+    "client": "npm.cmd run dev --prefix client",
+    "dev": "concurrently \"npm.cmd run server\" \"npm.cmd run client\"",
+    "install-deps": "npm.cmd install && npm.cmd install --prefix server"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
