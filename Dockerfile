@@ -1,9 +1,9 @@
 # Stage 1: Build the React frontend
 FROM node:18 AS client-builder
-# Force development environment for npm install to ensure build tools (Vite) are installed
 ENV NODE_ENV=development
 WORKDIR /app/client
-COPY client/package*.json ./
+# Copy only package.json to ignore Windows-specific package-lock.json
+COPY client/package.json ./
 RUN npm install
 COPY client/ ./
 RUN npm run build
@@ -23,8 +23,8 @@ RUN apt-get update && apt-get install -y \
 # Install yt-dlp python package
 RUN pip3 install --no-cache-dir yt-dlp
 
-# Copy server package files and install dependencies
-COPY server/package*.json ./server/
+# Copy only server package.json to ignore Windows-specific package-lock.json
+COPY server/package.json ./server/
 RUN cd server && npm install --omit=dev
 
 # Copy server code
