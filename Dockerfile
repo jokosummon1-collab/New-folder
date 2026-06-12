@@ -20,8 +20,8 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/* \
     && ln -sf python3 /usr/bin/python
 
-# Install yt-dlp python package
-RUN pip3 install --no-cache-dir yt-dlp
+# Install yt-dlp python package (using --break-system-packages to bypass Debian 12 PEP 668 restriction)
+RUN pip3 install --no-cache-dir --break-system-packages yt-dlp
 
 # Copy only server package.json to ignore Windows-specific package-lock.json
 COPY server/package.json ./server/
